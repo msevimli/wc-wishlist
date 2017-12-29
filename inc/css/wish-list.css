@@ -1,0 +1,104 @@
+.addWishListBtt {
+    position: absolute;
+    font-size: 19px;
+    padding: 10px;
+    border-radius: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+.addWishListBtt:hover {
+    background-color: dimgrey;
+}
+.addWishListBtt:before {
+    content: "\f004";
+    font-family: FontAwesome;
+    padding-right: 2px;
+    padding-left: 2px;
+    cursor: pointer;
+}
+.wishBeat {
+    display: block !important;
+}
+.choosenWhish {
+    background-color: dimgrey;
+}
+.wishListContainerOut  {
+    position: fixed;
+    width: 100%;
+    top: 40%;
+    z-index: 9999;
+    display: none;
+}
+.wishListContainer {
+    background: white;
+    box-shadow: 1px 1px 30px black;
+    position: relative;
+    width:34%;
+    margin: 0 auto;
+    z-index: 99999;
+}
+.removeWish:before {
+    content: "\f1f8";
+    font-family: FontAwesome;
+    padding-right: 2px;
+    padding-left: 2px;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: 100;
+}
+.removeWish:hover {
+    color: red;
+}
+.wishButton {
+    position: fixed;
+    left: 1%;
+    top: 80%;
+    cursor: pointer;
+    z-index: 9999;
+    display: none;
+}
+.bttImg {
+    object-fit: contain;
+    object-position:center;
+    width: 66%;
+    border-radius: 100%;
+    background-color: #b20000;
+    box-shadow: -2px 2px 9px black;
+    transition: background-color 0.5s ease;
+    transition: box-shadow 0.5s ease;
+    transition: transform 0.5s ease;
+}
+.bttImg:hover {
+    background-color: #da00ff;
+    box-shadow: -2px 2px 40px #000000;
+    transform: scale(1.1);
+}
+.hideIt {
+    display: block;
+}
+.wishAllCover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #0000007d;
+    top: 0;
+    z-index: 999;
+    display: none;
+}
+.wList-top-left {
+    top: 9px;
+    left: 5px;
+}
+.wList-top-right {
+    top: 9px;
+    right: 5px;
+}
+.wList-bottom-left {
+    bottom: 9px;
+    left: 5px;
+}
+.wList-bottom-right {
+    bottom: 9px;
+    right: 5px;
+}
