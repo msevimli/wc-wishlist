@@ -14,8 +14,6 @@ include_once("inc/class-wish-list.php");
 function reqFiles_wishList() {
     wp_register_style('wishList', plugins_url('inc/css/wish-list.css', __FILE__));
     wp_enqueue_style('wishList');
-    wp_register_style('wishListAnimate', plugins_url('inc/css/animate.min.css', __FILE__));
-    wp_enqueue_style('wishListAnimate');
 }
 add_action("wp_enqueue_scripts","reqFiles_wishList");
 add_action("wp_head","wListBeforeLoop");
@@ -45,8 +43,8 @@ function init_List() {
             .spinnerWishList {
                 background-image: url(<?php echo plugins_url('inc/css/giphy.gif', __FILE__)  ?>);
                 background-size: cover;
-                width: 16%;
-                height: 108px;
+                width: 23%;
+                height: 122px;
                 position: relative;
                 margin: 0 auto;
             }

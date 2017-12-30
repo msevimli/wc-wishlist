@@ -38,7 +38,7 @@ jQuery(document).ready(function($){
     $(".wishButton").click(function () {
         if(det==0) {
             $(".wishListContainer").addClass('wLTrickBackground');
-            $(".wishListContainer").html('<div class="spinnerWishList hideIt"></div>');
+            $(".wishListContainer").html('<div class="wLSpinnerContainer"><div class="spinnerWishList hideIt"></div></div>');
             $(".wishListContainerOut").fadeIn();
             $(".wishAllCover").fadeIn();
             det=1;
