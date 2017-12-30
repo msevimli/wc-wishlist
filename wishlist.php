@@ -42,15 +42,6 @@ add_action("woocommerce_before_shop_loop_item","boot_wishList");
 function init_List() {
     ?>
         <style>
-            /* we will disable mobile version for now */
-            @media screen and (max-width: 768px) {
-                .addWishListBtt {
-                    display: none !important;
-                }
-                .wishButton {
-                    display: none !important;
-                }
-            }
             .spinnerWishList {
                 background-image: url(<?php echo plugins_url('inc/css/giphy.gif', __FILE__)  ?>);
                 background-size: cover;
@@ -64,8 +55,7 @@ function init_List() {
             <img class="bttImg" src="<?php echo plugins_url('inc/css/wishlist-Button.png', __FILE__)  ?>">
         </div>
         <div class="wishListContainerOut">
-            <div class="wishListContainer">
-            </div>
+            <div class="wishListContainer"></div>
             <div class="wishAllCover"></div>
         </div>
     <?php

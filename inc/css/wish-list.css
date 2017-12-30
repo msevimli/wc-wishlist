@@ -21,7 +21,8 @@
     display: block !important;
 }
 .choosenWhish {
-    background-color: dimgrey;
+    background-color: dimgrey !important;
+    opacity: .8 !important;
 }
 .wishListContainerOut  {
     position: fixed;
@@ -31,24 +32,32 @@
     display: none;
 }
 .wishListContainer {
-    background: white;
     box-shadow: 1px 1px 30px black;
     position: relative;
-    width:34%;
+    width:32%;
     margin: 0 auto;
     z-index: 99999;
 }
 .removeWish:before {
-    content: "\f1f8";
+    /*content: "\f1f8";*/
+    content:"\f00d";
     font-family: FontAwesome;
     padding-right: 2px;
     padding-left: 2px;
     cursor: pointer;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 100;
 }
+.removeWish {
+    background-color: #ff0202;
+    padding: 5px;
+    padding-top: 2px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .removeWish:hover {
-    color: red;
+    background-color: dimgrey;
 }
 .wishButton {
     position: fixed;
@@ -101,4 +110,161 @@
 .wList-bottom-right {
     bottom: 9px;
     right: 5px;
+}
+.wLContainerInlineCover {
+    position: relative;
+    width: 100%;
+    max-height: 455px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.5019607843137255);
+    padding: 10px;
+}
+.wLContainerInlineCover::-webkit-scrollbar{
+    width:6px;
+    background-color: #0b1107;
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#f8f8f8;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+.wLContainerInlineCover::-webkit-scrollbar-thumb{
+    width:6px;
+    background-color:grey;
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#262626;
+}
+.wLContainerInline {
+    position: relative;
+    width: 99%;
+    min-height: 80px;
+    padding: 10px;
+    padding-right: 0;
+    margin: 5px;
+    display: inline-flex;
+    box-shadow: 1px 1px 43px #b6b6b6;
+    border-radius: 3px;
+    background-color: white;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 7px;
+}
+.wLInConElm {
+    margin-right: 11%;
+    font-size: 18px;
+}
+.wLInImg  {
+    width: 80px;
+    display: table;
+}
+.wLInImg img {
+    border-radius: 5px;
+    box-shadow: -1px 1px 14px black;
+}
+.wLInName {
+    display: table;
+    width: 27%;
+    height: 80px;
+}
+.wLInName div {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 1.3;
+    text-align: center;
+}
+.wLInName div a {
+    color: #473028;
+}
+.wLInName div a:hover {
+    color: red;
+}
+.wLInPrice {
+    width: 20%;
+    display: table-cell;
+}
+.wLInPrCover {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 1.3;
+    text-align: left;
+    height: 80px;
+}
+.wLInPrice .wLInPrCover ins span {
+    color: red;
+}
+.wLInPro {
+    display: table;
+}
+.wLRmvIcon {
+    display: table-cell;
+    vertical-align: middle;
+    height: 80px;
+    text-align: right;
+}
+.wLTrickBackground {
+    background-color: white;
+}
+@media screen and (max-width: 1420px) {
+    .wishListContainer {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .wishListContainer {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1070px) {
+    .wishListContainer {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .wishListContainer {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 570px) {
+    .wishListContainer {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .wLContainerInline {
+        display: block;
+    }
+    .wLInImg {
+        width: 80px;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .wLInName {
+        width: 100%;
+        height: auto !important;
+    }
+    .wLInPrCover {
+        height: 35px;
+    }
+    .wLInPrice {
+        width: 65%;
+        display: block;
+        text-align: center;
+        height: auto !important;
+        position: relative;
+        margin: 0 auto;
+    }
+    .wLInPro {
+        display: table;
+        position: relative;
+        left: 86%;
+        top: -10px;
+    }
+    .wLRmvIcon {
+        height: auto !important;
+    }
 }

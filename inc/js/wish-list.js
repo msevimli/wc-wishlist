@@ -37,6 +37,7 @@ jQuery(document).ready(function($){
     })
     $(".wishButton").click(function () {
         if(det==0) {
+            $(".wishListContainer").addClass('wLTrickBackground');
             $(".wishListContainer").html('<div class="spinnerWishList hideIt"></div>');
             $(".wishListContainerOut").fadeIn();
             $(".wishAllCover").fadeIn();
@@ -52,50 +53,45 @@ jQuery(document).ready(function($){
                 success: function (response) {
                     var products=JSON.parse(response);
                     if(products != null || products != undefined ) {
-                        var table = document.createElement("table");
-                        table.className = "gridtable";
-                        var thead = document.createElement("thead");
-                        var tbody = document.createElement("tbody");
-                        var headRow = document.createElement("tr");
-                        ["", "Produkt :", "Pris :", ""].forEach(function (el) {
-                            var th = document.createElement("th");
-                            th.appendChild(document.createTextNode(el));
-                            headRow.appendChild(th);
-                        });
-                        thead.appendChild(headRow);
-                        table.appendChild(thead);
-                        for (var i = 0; i < products.length; i++) {
-                            var tr = document.createElement("tr");
-                            tr.setAttribute("id", "wishLine-" + products[i]['id']);
-                            var td = document.createElement("td");
-                            td.innerHTML = products[i]['image'];
-                            tr.appendChild(td);
-                            var td = document.createElement("td");
-                            var a = document.createElement('a');
-                            var linkText = document.createTextNode(products[i]['name']);
-                            a.appendChild(linkText);
-                            a.title = products[i]['name'];
-                            a.href = products[i]['url'];
-                            td.prepend(a);
-                            tr.appendChild(td);
-                            var td = document.createElement("td");
-                            td.innerHTML = products[i]['price'];
-                            tr.appendChild(td);
-                            var td = document.createElement("td");
+                        $(".wishListContainer").removeClass('wLTrickBackground');
+                        var d = document.createElement('div');
+                        d.setAttribute('data','');
+                        $(d).addClass('wLContainerInlineCover')
+                        $(".wishListContainer").html(d);
+                        for(var i = 0; i < products.length; i++ ) {
+                            var inDiv=document.createElement('div');
+                            $(inDiv).addClass('wLContainerInline')
+                            inDiv.setAttribute('id','wishLine-'+products[i]['id']);
+                            $('.wLContainerInlineCover').prepend(inDiv);
+
+                            var conImg=document.createElement('div');
+                            $(conImg).addClass('wLInImg wLInConElm');
+                            $(conImg).html('<a href="'+products[i]['url']+'">'+products[i]['image']+'</a>');
+
+                            var conName=document.createElement('div');
+                            $(conName).addClass('wLInName wLInConElm');
+                            $(conName).html('<div><a href="'+products[i]['url']+'">'+products[i]['name']+'</a></div>');
+
+                            var conPrice=document.createElement('div');
+                            $(conPrice).addClass('wLInPrice wLInConElm');
+                            $(conPrice).html('<div class="wLInPrCover">'+products[i]['price']+'</div>');
+
+                            var conPro = document.createElement('div');
+                            $(conPro).addClass('wLInPro wLInConElm');
                             d = document.createElement('div');
                             d.setAttribute('data', products[i]['id']);
-                            $(d).addClass('rmv')
+                            $(d).addClass('wLRmvIcon')
                                 .html('<span class="removeWish"></span>')
                                 .click(function () {
                                     removeWishProduct($(this).attr('data'))
                                 })
-                            td.prepend(d);
-                            tr.appendChild(td);
-                            tbody.appendChild(tr);
-                            tbody.appendChild(tr);
-                            table.appendChild(tbody);
+                            $(conPro).html(d);
+
+                            $('#wishLine-'+products[i]['id']).prepend(conPro);
+                            $('#wishLine-'+products[i]['id']).prepend(conPrice);
+                            $('#wishLine-'+products[i]['id']).prepend(conName);
+                            $('#wishLine-'+products[i]['id']).prepend(conImg);
                         }
-                        $(".wishListContainer").html(table);
                     }
                 }
             });
