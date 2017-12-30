@@ -267,4 +267,10 @@
     .wLRmvIcon {
         height: auto !important;
     }
+    .wishListContainerOut {
+        top: 2%;
+    }
+    .bttImg {
+        width: 45%;
+    }
 }
