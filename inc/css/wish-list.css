@@ -54,6 +54,7 @@
 }
 .addWishListBtt:hover {
     background-color: dimgrey;
+    color:white;
 }
 .addWishListBtt:before {
     content: "\f004";
@@ -66,8 +67,9 @@
     display: block !important;
 }
 .choosenWhish {
-    background-color: dimgrey !important;
-    opacity: .8 !important;
+    background-color: dimgrey;
+    opacity: .8 ;
+    color: white;
 }
 .wishListContainerOut  {
     position: fixed;
