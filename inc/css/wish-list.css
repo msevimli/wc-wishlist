@@ -281,7 +281,7 @@
 }
 @media screen and (max-width: 570px) {
     .wishListContainer {
-        width: 90%;
+        width: 70%;
     }
 }
 @media screen and (max-width: 480px) {
@@ -301,6 +301,8 @@
     }
     .wLInPrCover {
         height: 35px;
+        display:unset;
+        text-align: center;
     }
     .wLInPrice {
         width: 65%;
@@ -312,17 +314,21 @@
     }
     .wLInPro {
         display: table;
-        position: relative;
-        left: 86%;
-        top: -10px;
+        position: absolute;
+        left: 77%;
+        top: 18px;
     }
     .wLRmvIcon {
         height: auto !important;
     }
     .wishListContainerOut {
-        top: 2%;
+        top: 8%;
     }
     .bttImg {
         width: 45%;
+    }
+    .spinnerWishList {
+        width: 26% !important;
+        height: 72px !important;
     }
 }
