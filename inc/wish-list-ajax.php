@@ -76,5 +76,6 @@ function getContent() {
             $i++;
         }
         return json_encode($product);
+        exit;
     }
 }
