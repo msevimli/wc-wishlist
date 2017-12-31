@@ -165,7 +165,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: rgba(0, 0, 0, 0.5019607843137255);
-    padding: 10px;
+    padding: 5px;
 }
 .wLContainerInlineCover::-webkit-scrollbar{
     width:6px;
@@ -189,13 +189,13 @@
     min-height: 80px;
     padding: 10px;
     padding-right: 0;
-    margin: 5px;
+    margin: 3px;
     display: inline-flex;
     box-shadow: 1px 1px 43px #b6b6b6;
-    border-radius: 3px;
+    border-radius: 2px;
     background-color: white;
     border-top-right-radius: 18px;
-    border-bottom-left-radius: 7px;
+    border-bottom-left-radius: 8px;
 }
 .wLInConElm {
     margin-right: 11%;
@@ -244,6 +244,7 @@
 }
 .wLInPro {
     display: table;
+    width: 45px;
 }
 .wLRmvIcon {
     display: table-cell;
