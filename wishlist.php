@@ -30,7 +30,7 @@ function wListBeforeLoop() {
 
 function boot_wishList() {
     global $product;
-    $productIds=json_decode($_SESSION["wish_list"],true);
+    $productIds=isset($_SESSION["wish_list"]) ? json_decode($_SESSION["wish_list"],true) : "[]";
     $className=isset($_SESSION["wish_list"]) && in_array($product->get_id(),$productIds) ? "choosenWhish" : "";
     $wLPosition= get_option('wListPosition');
     echo '<div title="'.get_option("wListTitle").'" class="addWishListBtt '.$className.' '.$wLPosition.'" data="'.$product->get_id().'"><span></span></div>';
