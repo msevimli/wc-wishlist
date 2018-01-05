@@ -185,11 +185,11 @@
 }
 .wLContainerInline {
     position: relative;
-    width: 99%;
+    width: 103%;
     min-height: 80px;
-    padding: 10px;
+    padding: 5px;
     padding-right: 0;
-    margin: 3px;
+    margin: 1px;
     display: inline-flex;
     box-shadow: 1px 1px 43px #b6b6b6;
     border-radius: 2px;
