@@ -8,6 +8,10 @@
  * Author URI: http://plife.se
  * License: GPL2
  */
+if ( ! defined("ABSPATH") ) {
+    exit;
+}
+
 include_once("inc/wish-list-ajax.php");
 include_once("inc/class-wish-list.php");
 
@@ -30,8 +34,8 @@ function wListBeforeLoop() {
 
 function boot_wishList() {
     global $product;
-    $productIds=isset($_SESSION["wish_list"]) ? json_decode($_SESSION["wish_list"],true) : "[]";
-    $className=isset($_SESSION["wish_list"]) && in_array($product->get_id(),$productIds) ? "choosenWhish" : "";
+    $productIds= isset($_SESSION["wish_list"]) ? json_decode($_SESSION["wish_list"], true ) : "[]";
+    $className = isset($_SESSION["wish_list"]) && in_array($product->get_id(), $productIds) ? "choosenWhish" : "";
     $wLPosition= is_product_category('badrum') || is_product_tag('badrum') || is_product_category('badevaerelse') || is_product_tag('badevaerelse')  ? 'wList-bottom-right' :  get_option('wListPosition');
     echo '<div title="'.get_option("wListTitle").'" class="addWishListBtt '.$className.' '.$wLPosition.'" data="'.$product->get_id().'"><span></span></div>';
 }
