@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Woocommerce Wish List
+ * Plugin Name: Woocommerce Product Wish List
  * Plugin URI: http://plife.se
  * Description: This plugin will add support for woocommerce to create wish list
  * Version: 1.1
@@ -61,7 +61,7 @@ function init_List() {
             }
         </style>
         <?php
-            if(is_product()) {
+            if( is_product() ) {
                 ?>
                     <style>
                         .wishButtonSingle {
