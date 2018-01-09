@@ -37,7 +37,7 @@ function boot_wishList() {
     $productIds= isset($_SESSION["wish_list"]) ? json_decode($_SESSION["wish_list"], true ) : "[]";
     $className = isset($_SESSION["wish_list"]) && in_array($product->get_id(), $productIds) ? "choosenWhish" : "";
     $wLPosition= is_product_category('badrum') || is_product_tag('badrum') || is_product_category('badevaerelse') || is_product_tag('badevaerelse')  ? 'wList-bottom-right' :  get_option('wListPosition');
-    echo '<div title="'.get_option("wListTitle").'" class="addWishListBtt '.$className.' '.$wLPosition.'" data="'.$product->get_id().'"><span></span></div>';
+    echo '<div title="'.get_option("wListTitle").'" class="addWishListBtt '.$className.' '.$wLPosition.'" data="'.$product->get_id().'" onclick="filterFunction(this)" ><span></span></div>';
 }
 add_action("woocommerce_before_shop_loop_item","boot_wishList");
 function boot_wLSingle() {
@@ -46,7 +46,7 @@ function boot_wLSingle() {
     $classNameS=isset($_SESSION["wish_list"]) && in_array($product->get_id(),$productIdsS) ? "choosenWhish" : "";
     echo '<div title="'.get_option("wListTitle").'" class="addWishListBtt wishButtonSingle '.$classNameS.'" data="'.$product->get_id().'"><span></span></div>';
 }
-add_action("woocommerce_after_add_to_cart_button","boot_wLSingle");
+//add_action("woocommerce_after_add_to_cart_button","boot_wLSingle");
 
 function init_List() {
     ?>

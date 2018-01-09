@@ -137,5 +137,55 @@ jQuery(document).ready(function($){
         $(".wishListContainerOut").fadeOut();
         $(this).fadeOut();
         det=0;
-    })
+    });
+    var addWishListFilter=function(dataIdFilter) {
+        $(this).fadeTo( "slow" , 0.5, function() {
+            $(this).addClass("choosenWhish");
+        });
+        $(".bttImg").removeClass("bounce");
+        $.ajax({
+            url: ajaxWishList.ajax_url,
+            type: 'post',
+            data: {
+                action: 'post_wc_wishList',
+                id: parseInt(dataIdFilter),
+                tunnel:"add"
+            },
+            success: function (response) {
+                $(".wishButton").fadeTo("fast",1);
+                $(".bttImg").addClass("animated bounce");
+            }
+        });
+    }
 })
+function filterFunction(e) {
+    if(getParameterByNameWl('tunnel')) {
+        var r = document.getElementsByClassName("wishButton");
+        r[0].classList.remove("animated");
+        r[0].classList.remove("bounce");
+        var http = new XMLHttpRequest();
+        var url = ajaxWishList.ajax_url;
+        var params = "action=post_wc_wishList&id=" + parseInt(e.getAttribute("data")) + "&tunnel=add";
+        http.open("POST", url, true);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function () {//Call a function when the state changes.
+            if (http.readyState == 4 && http.status == 200) {
+                e.classList.add("choosenWhish");
+                var r = document.getElementsByClassName("wishButton");
+                r[0].classList.add("animated");
+                r[0].setAttribute("style", "display:block");
+                r[0].classList.add("bounce");
+            }
+        }
+        http.send(params);
+    }
+}
+function getParameterByNameWl(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
