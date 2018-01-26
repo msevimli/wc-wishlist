@@ -1,5 +1,5 @@
 <?php
-session_start();
+if ( is_session_started() === false ) session_start();
 function requireFilesWishList() {
     wp_enqueue_script( 'ajax-wish-list',plugins_url('js/wish-list.js', __FILE__), array('jquery'),1.1,true);
     wp_localize_script( 'ajax-wish-list', 'ajaxWishList', array(
@@ -78,4 +78,14 @@ function getContent() {
         return json_encode($product);
         exit;
     }
+}
+function is_session_started() {
+    if ( php_sapi_name() !== 'cli' ) {
+        if ( version_compare(phpversion(), '5.4.0', '>=') ) {
+            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+        } else {
+            return session_id() === '' ? FALSE : TRUE;
+        }
+    }
+    return false;
 }
